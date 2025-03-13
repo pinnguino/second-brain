@@ -96,7 +96,7 @@ Si nosotros trabajamos sobre una rama, y queremos que los cambios realizados for
 ## Merge
 `git merge` nos permite hacer un commit nuevo en una rama específica **combinándolos** con los cambios realizados en otra rama.
 
-![Git merge](/assets/img/merge.png)
+![Git merge](./assets/img/merge.png)
 
 Para hacer esto, nos posicionamos en la rama en la que queremos integrar los cambios de otra rama y usamos el comando de la siguiente manera:
 
@@ -121,7 +121,7 @@ Desde `master` creamos una rama llamada `rama-nueva`. En la nueva rama hacemos m
 También, en master, se realiza una modificación sobre los archivos. Cuando queremos fusionar `rama-nueva` en `master`, *¿Con qué cambios nos quedamos?* ¿Con los cambios hechos en `master`? ¿Con los cambios en `rama-nueva`? ¿Nos quedamos con los dos cambios? ¿Con ninguno?
 Estas preguntas son las que tenemos que resolver por git cuando tenemos que fusionar ramas y se nos presenta esta problemática, que es bastante habitual.
 
-![Merge conflicts](/assets/img/merge-conflict.png)
+![Merge conflicts](./assets/img/merge-conflict.png)
 
 > [!WARNING]
 > Es importante que, al resolver conflictos de fusión de ramas, prestar atención a los cambios que queremos mantener, y cuáles queremos quitar.
