@@ -1,7 +1,13 @@
 ---
-title: My GitHub Pages Notebook!
+id: index
+aliases:
+  - home
+  - start
+tags: []
 ---
+# Mis notas académicas
 
-Hello world!
+## Tabla de contenido
 
-Write some words here!
+### [Git](./git/00-git.md)
+### [Programación Competitiva I](./competitivaI/00-index.md)
