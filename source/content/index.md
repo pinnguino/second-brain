@@ -11,3 +11,4 @@ tags: []
 
 ### [Git](./git/00-git.md)
 ### [Programación Competitiva I](./competitivaI/00-index.md)
+### [Metodologías Ágiles](./metodologias_agiles/00-index.md)
