@@ -26,7 +26,7 @@ La fusión tradicional de Git, conocida como **merge**, toma dos ramas y combina
 
 ### Ejemplo de comando:
 ```bash
-git checkout main        # Cambia a la rama de destino
+git switch main          # Cambia a la rama de destino
 git merge feature        # Fusiona la rama 'feature' a 'main'
 ```
 
@@ -47,7 +47,7 @@ El **rebase** es otro método para fusionar ramas, pero en lugar de crear un mer
 
 ### Ejemplo de comando:
 ```bash
-git checkout feature      # Cambia a la rama que quieres rebasear
+git switch feature        # Cambia a la rama que quieres rebasear
 git rebase main           # Rebase de 'feature' sobre 'main'
 ```
 
