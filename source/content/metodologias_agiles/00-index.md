@@ -34,5 +34,9 @@ El 12 de febrero del 2001, 17 experimentados profesionales asociaron el adjetivo
 
 ## Tabla de contenidos
 
-### [1. El Manifiesto Ágil](01-manifiesto-agil.md)
+### [El Manifiesto Ágil](01-manifiesto-agil.md)
+### [Características de las metodologías ágiles](02-caracteristicas.md)
+### [Principales Metodologías Ágiles](03-principales-metodologias.md)
+### [Scrum](04-scrum.md)
+    a. []
 
