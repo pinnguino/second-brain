@@ -38,5 +38,4 @@ El 12 de febrero del 2001, 17 experimentados profesionales asociaron el adjetivo
 ### [Características de las metodologías ágiles](02-caracteristicas.md)
 ### [Principales Metodologías Ágiles](03-principales-metodologias.md)
 ### [Scrum](04-scrum.md)
-    a. []
-
+### [Historias de usuario](05-historias-de-usuario.md)
