@@ -160,11 +160,33 @@ Este comando descarga una imagen de prueba, la ejecuta en un contenedor y muestr
 ## 💡 Notas Post-Instalación
 
 ### Gestión sin Root (Opcional)
-Si recibes errores de permisos al ejecutar comandos sin `sudo`, debes añadir tu usuario al grupo `docker`:
+Si recibes errores de permisos al ejecutar comandos sin `sudo`, es porque el tu usuario personal no tiene acceso al daemon `dockerd`.
+Para solucionar esto se puede trabajar como usuario `root` (no recomendable para entornos de producción), o agregar el usuario con el que trabajarás al grupo de docker.
+Para añadir tu usuario al grupo `docker`:
 ```bash
+# Si quieres crear un usuario nuevo:
+sudo adduser dockerdev
+
+# Agregarlo al grupo docker:
 sudo usermod -aG docker $USER
 ```
 *Debes cerrar sesión y volver a entrar para que este cambio surta efecto.*
+
+### ⚠️ IMPORTANTE ⚠️
+
+**El "Poder Oculto" del nuevo usuario**: Es importante que entiender que, aunque `devuser` no esté en el grupo `sudo`, ahora <u>técnicamente es un administrador encubierto</u>.
+
+Por ejemplo, ese usuario podría ejecutar:
+```bash
+docker run -v /:/host_root -it ubuntu bash
+```
+
+Ese comando arranca un contenedor que "monta" todo tu disco duro real dentro del contenedor. Una vez dentro, el usuario puede ver y borrar tus fotos, cambiar contraseñas de otros usuarios o leer archivos privados de `/root`, todo esto sin conocer la contraseña de `root` ni estar en **sudoers**.
+
+### La solución: Modo *rootless*
+El modo Rootless es la respuesta de Docker a los problemas de seguridad que comentamos antes. Básicamente, permite ejecutar el demonio de Docker y los contenedores sin privilegios de root.
+En este modo, incluso si alguien logra "escapar" del contenedor, solo tendrá acceso a los archivos del usuario que lanzó el proceso, no a todo el sistema operativo.
+Puedes buscar más información en el sitio oficial de Docker [aquí](https://docs.docker.com/engine/security/rootless).
 
 ### Limitaciones de Firewall
 Ten en cuenta que si usas **ufw**, Docker suele saltarse las reglas de firewall al exponer puertos de contenedores. Asegúrate de configurar tus reglas en la cadena `DOCKER-USER` si necesitas filtrado estricto.
@@ -174,3 +196,5 @@ Si necesitas limpiar la instalación por completo:
 1. Purga los paquetes: `sudo apt purge docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin`.
 2. Borra datos de contenedores/imágenes: `sudo rm -rf /var/lib/docker` y `/var/lib/containerd`.
 3. Elimina el repositorio y la clave: `sudo rm /etc/apt/sources.list.d/docker.sources` y `/etc/apt/keyrings/docker.asc`.
+
+[Siguiente: Contenedores](./03-contenedores.md)
